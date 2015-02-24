@@ -1,86 +1,86 @@
-<?php
-/*
-	This file is part of UserMgmt.
+<div class="sizes form login" style="width: 650px !important;">
+	<?php echo $this->Form->create('User'); ?>
+	<fieldset>
+		<legend class="go-left" style="margin: -16px 0 10px;"><?php echo __('My Profile'); ?></legend>
+		<?php echo $this->Html->link(__('Change Password'), array('action' => 'changePassword'), array('class' => 'go-right', 'style' => 'margin-top: -10px;')); ?>
+		<div class="clear"></div>
+		<hr />
+		<?php if (!empty($user)) : ?>
+			<dl>
+				<dt><?php echo __('Username'); ?></dt>
+				<dd><?php echo h($user['User']['username']) ?>&nbsp;</dd>
+				<dt><?php echo __('First Name'); ?></dt>
+				<dd><?php echo h($user['User']['first_name']) ?>&nbsp;</dd>
+				<dt><?php echo __('Last Name'); ?></dt>
+				<dd><?php echo h($user['User']['last_name']) ?>&nbsp;</dd>
+				<dt><?php echo __('Email'); ?></dt>
+				<dd><?php echo h($user['User']['email']) ?>&nbsp;</dd>
+				<dt><?php echo __('User Group'); ?></dt>
+				<dd><?php echo h($user['UserGroup']['name']) ?>&nbsp;</dd>
 
-	Author: Chetan Varshney (http://ektasoftwares.com)
-
-	UserMgmt is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
-
-	UserMgmt is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
-*/
-?>
-<div class="umtop">
-	<?php echo $this->Session->flash(); ?>
-	<?php echo $this->element('dashboard'); ?>
-	<div class="um_box_up"></div>
-	<div class="um_box_mid">
-		<div class="um_box_mid_content">
-			<div class="um_box_mid_content_top">
-				<span class="umstyle1"><?php echo __('My Profile'); ?></span>
-				<span class="umstyle2" style="float:right"><?php echo $this->Html->link(__("Home",true),"/") ?></span>
-				<div style="clear:both"></div>
-			</div>
-			<div class="umhr"></div>
-			<div class="um_box_mid_content_mid" id="index">
-				<table cellspacing="0" cellpadding="0" width="100%" border="0" >
-					<tbody>
-			<?php       if (!empty($user)) { ?>
-							<tr>
-								<td><strong><?php echo __('User Id');?></strong></td>
-								<td><?php echo $user['User']['id']?></td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('User Group');?></strong></td>
-								<td><?php echo h($user['UserGroup']['name'])?></td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('Username');?></strong></td>
-								<td><?php echo h($user['User']['username'])?></td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('First Name');?></strong></td>
-								<td><?php echo h($user['User']['first_name'])?></td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('Last Name');?></strong></td>
-								<td><?php echo h($user['User']['last_name'])?></td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('Email');?></strong></td>
-								<td><?php echo h($user['User']['email'])?></td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('Status');?></strong></td>
-								<td><?php
-										if ($user['User']['active']) {
-											echo 'Active';
-										} else {
-											echo 'Inactive';
-										}
-									?>
-								</td>
-							</tr>
-							<tr>
-								<td><strong><?php echo __('Created');?></strong></td>
-								<td><?php echo date('d-M-Y',strtotime($user['User']['created']))?></td>
-							</tr>
-				<?php   } else {
-							echo "<tr><td colspan=2><br/><br/>No Data</td></tr>";
-						}
-					?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-	<div class="um_box_down"></div>
+				<dt><?php echo __('Facebook'); ?></dt>
+				<dd>
+					<?php
+					if ($user['User']['facebook_id']) :
+						echo $this->Html->link($user['User']['facebook_id'], 'https://www.facebook.com/' . $user['User']['facebook_id'], array('target' => '_blank'));
+					else :
+						echo __('N/A');
+					endif;
+					?>&nbsp;
+				</dd>
+				<dt><?php echo __('Photo'); ?></dt>
+				<dd>
+					<?php
+					if ($user['User']['photo']) :
+						echo $this->Html->image($user['User']['photo'], array('class' => 'image-thumbnail'));
+					else :
+						echo __('N/A');
+					endif;
+					?>&nbsp;
+				</dd>
+				<dt><?php echo __('Gender'); ?></dt>
+				<dd>
+					<span style="text-transform: capitalize;"><?php echo $user['User']['gender']; ?></span>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Birthday'); ?></dt>
+				<dd>
+					<?php echo $this->Html->toHumanDate($user['User']['birthday']); ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Telephone'); ?></dt>
+				<dd>
+					<?php echo $user['User']['telephone']; ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Address'); ?></dt>
+				<dd>
+					<?php echo $user['User']['address']; ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Nationality'); ?></dt>
+				<dd>
+					<?php echo $user['User']['nationality']; ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Workplace'); ?></dt>
+				<dd>
+					<?php echo $user['User']['workplace']; ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Position'); ?></dt>
+				<dd>
+					<?php echo $user['User']['position']; ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Created'); ?></dt>
+				<dd><?php echo $this->Html->toHumanDateTime($user['User']['created']) ?>&nbsp;</dd>
+			</dl>
+			<?php
+		else :
+			echo '<tr><td colspan="2"><br/><br/>No Data</td></tr>';
+		endif;
+		?> 
+	</fieldset>
+	<?php echo $this->Form->end(); ?>
 </div>
