@@ -1,12 +1,12 @@
-#User Management Plugin for Cakephp 2.x
+#User Management Plugin for CakePHP 2.x
 
-UserMgmt is a User Management Plugin for cakephp 2.x
+UserMgmt is a User Management Plugin for CakePHP 2.x
 Plugin version 2.x (Stable) Last updated on 24-Feb-2015
 
 Hey wanna Demo? [http://usermgmt.ektasoftwares.com]
 [http://usermgmt.ektasoftwares.com]:http://usermgmt.ektasoftwares.com
 
-Wanna more featues? http://umpremium.ektasoftwares.com
+Wanna more featues? [http://umpremium.ektasoftwares.com]
 [http://umpremium.ektasoftwares.com]:http://umpremium.ektasoftwares.com
 
 It's based on jedt/SparkPlug plugin and forked from [junifar/User-Management-Plugin-for-Cakephp-2.x]
@@ -53,7 +53,7 @@ It's based on jedt/SparkPlug plugin and forked from [junifar/User-Management-Plu
 	```php
 	<?php
 	class AppController extends Controller {
-		var $helpers = array('Form', 'Html', 'Session', 'Js', 'Usermgmt.UserAuth');
+		public $helpers = array('Form', 'Html', 'Session', 'Js', 'Usermgmt.UserAuth');
 		public $components = array('Session', 'RequestHandler', 'Usermgmt.UserAuth');
 		function beforeFilter(){
 			$this->userAuth();
@@ -88,10 +88,12 @@ It's based on jedt/SparkPlug plugin and forked from [junifar/User-Management-Plu
 	Please follow the article steps 1 to 7 for recaptcha keys [http://www.chetanvarshney.com/programming/php/recaptcha-keys-for-user-management-plugin]
 [http://www.chetanvarshney.com/programming/php/recaptcha-keys-for-user-management-plugin]:http://www.chetanvarshney.com/programming/php/recaptcha-keys-for-user-management-plugin
 
-7. Default user name password
+7. Default username and password
  
+ 	```
 	username: admin
 	password: test123
+	```
 
 ALL DONE !
 
